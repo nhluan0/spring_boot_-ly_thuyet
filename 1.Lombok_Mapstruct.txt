@@ -25,6 +25,20 @@ public class User {
 2 cai tren de @Autowire tu dong vao ma ko can dung @Autowire , no chi dung cho cac field danh dau le final 
 
 2. MapStruct : 
+<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+<dependency>
+    <groupId>org.mapstruct</groupId>
+    <artifactId>mapstruct</artifactId>
+    <version>1.5.2.Final</version>
+</dependency>
+<!-- Dependency cho MapStruct processor -->
+<dependency>
+<groupId>org.mapstruct</groupId>
+    <artifactId>mapstruct-processor</artifactId>
+    <version>1.5.2.Final</version>
+    <scope>provided</scope>
+</dependency>
+
 - Step 1: create interface mapper
 - Step 2 : annotation @Mapper(componentModel=”spring”) : attribute componentModel=”spring” tell system that , I will use spring to mapper 
 , this annotation @Mapper bao voi spring rang tao su dung interface nay de mapper, may co the @Autowire vao cac class khac ma dung
