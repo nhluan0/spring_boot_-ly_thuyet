@@ -1,0 +1,40 @@
+1. Lombok
+- Seter,getter,data
+- @Builder : khi set Object nay thi thuong dung set => dai => de rut ngan thi dung builder 
+    
+        User user = User.builder()
+                        .id(1L)
+                        .name("John Doe")
+                        .email("john.doe@example.com")
+                        .build();
+
+        
+   
+- @FieldDefaults:???c s? d?ng ?? ??t các giá tr? m?c ??nh cho các thu?c tính c?a l?p, ch?ng h?n nh? ?? truy c?p (private, protected, public) và tính ch?t final. 
+level: ??t ?? truy c?p m?c ??nh cho các thu?c tính. Các giá tr? có th? là AccessLevel.PUBLIC, AccessLevel.PROTECTED, AccessLevel.PACKAGE (m?c ??nh), AccessLevel.PRIVATE.
+makeFinal: ??t thu?c tính này là true n?u b?n mu?n t?t c? các thu?c tính trong l?p là final.
+Vi du: 
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true) 
+public class User {
+ 	Long id; 
+	String name;
+	 String email; 
+}
+- @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
+2 cai tren de @Autowire tu dong vao ma ko can dung @Autowire , no chi dung cho cac field danh dau le final 
+
+2. MapStruct : 
+- Step 1: create interface mapper
+- Step 2 : annotation @Mapper(componentModel=”spring”) : attribute componentModel=”spring” tell system that , I will use spring to mapper 
+, this annotation @Mapper bao voi spring rang tao su dung interface nay de mapper, may co the @Autowire vao cac class khac ma dung
+- Step 3: create method to mapper 
+
+- Annotation :  
+1. @Mapping (source = “firstName”, target = “ lastName”) : source la doi tuong dau tien de mapper , target la ket qua cuoi cung ta can lay
+
+2. @Mapping (target = “ lastName”,ignore = true) : ko mapper truong lastName 
+
+3. @MappingTarget : doi tuong nao duoc danh dau thi do la dich den de mapper thuong dung de update …
+
+
