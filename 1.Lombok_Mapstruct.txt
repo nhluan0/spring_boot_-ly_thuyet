@@ -10,9 +10,9 @@
 
         
    
-- @FieldDefaults:???c s? d?ng ?? ??t các giá tr? m?c ??nh cho các thu?c tính c?a l?p, ch?ng h?n nh? ?? truy c?p (private, protected, public) và tính ch?t final. 
-level: ??t ?? truy c?p m?c ??nh cho các thu?c tính. Các giá tr? có th? là AccessLevel.PUBLIC, AccessLevel.PROTECTED, AccessLevel.PACKAGE (m?c ??nh), AccessLevel.PRIVATE.
-makeFinal: ??t thu?c tính này là true n?u b?n mu?n t?t c? các thu?c tính trong l?p là final.
+- @FieldDefaults: (private, protected, public) && final. 
+level:chi loai modifers. Value can AccessLevel.PUBLIC, AccessLevel.PROTECTED, AccessLevel.PACKAGE (), AccessLevel.PRIVATE.
+makeFinal:mac dinh la false, thuoc tinh nay ap dung cho modifier final.
 Vi du: 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true) 
 public class User {
