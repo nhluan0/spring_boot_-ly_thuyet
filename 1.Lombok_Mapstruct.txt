@@ -40,15 +40,24 @@ public class User {
 </dependency>
 
 - Step 1: create interface mapper
-- Step 2 : annotation @Mapper(componentModel=îspringî) : attribute componentModel=îspringî tell system that , I will use spring to mapper 
+- Step 2 : annotation @Mapper(componentModel=‚Äùspring‚Äù) : attribute componentModel=‚Äùspring‚Äù tell system that , I will use spring to mapper 
 , this annotation @Mapper bao voi spring rang tao su dung interface nay de mapper, may co the @Autowire vao cac class khac ma dung
 - Step 3: create method to mapper 
+@Mapper(componentModel="spring")
+public interface Mapper{
+	User toUser(UserRequest userRequest);
 
+	@Mapping(source="firstname", target="lastName") // mapper firstname cua user den lastName cua UserResponse
+	@Mapping (target = ‚Äú lastName‚Äù,ignore = true) // tu choi mapping property (lastName), tuc la bo qua mapper thuoc tinh lastName cua UserResponse
+	UserResponse toUserResponse(User user);
+
+	void updateUser(@MappingTarget User user,UserRequest userRequest);
+}
 - Annotation :  
-1. @Mapping (source = ìfirstNameî, target = ì lastNameî) : source la doi tuong dau tien de mapper , target la ket qua cuoi cung ta can lay
+1. @Mapping (source = ‚ÄúfirstName‚Äù, target = ‚Äú lastName‚Äù) : source la doi tuong dau tien de mapper , target la ket qua cuoi cung ta can lay
 
-2. @Mapping (target = ì lastNameî,ignore = true) : ko mapper truong lastName 
+2. @Mapping (target = ‚Äú lastName‚Äù,ignore = true) : ko mapper truong lastName 
 
-3. @MappingTarget : doi tuong nao duoc danh dau thi do la dich den de mapper thuong dung de update Ö
+3. @MappingTarget : doi tuong nao duoc danh dau thi do la dich den de mapper thuong dung de update ‚Ä¶
 
 
